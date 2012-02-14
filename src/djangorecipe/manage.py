@@ -1,5 +1,4 @@
 import sys
-from django.core import management
 
 
 def main(settings_file):
@@ -16,4 +15,5 @@ def main(settings_file):
                             % (settings_file, e))
         sys.exit(1)
 
+    from django.core import management
     management.execute_manager(mod)

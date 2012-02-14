@@ -1,7 +1,5 @@
 import sys
 
-from django.core import management
-
 
 def main(settings_file, logfile=None):
     try:
@@ -18,6 +16,7 @@ def main(settings_file, logfile=None):
         sys.exit(1)
 
     # Setup settings
+    from django.core import management
     management.setup_environ(mod)
 
     if logfile:

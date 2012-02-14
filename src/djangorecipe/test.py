@@ -1,6 +1,3 @@
-from django.core import management
-
-
 def main(settings_file, *apps):
     argv = ['test', 'test'] + list(apps)
     try:
@@ -15,5 +12,7 @@ def main(settings_file, *apps):
         sys.stderr.write("Error loading the settings module '%s': %s"
                             % (settings_file, e))
         sys.exit(1)
+
+    from django.core import management
 
     management.execute_manager(settings, argv=argv)

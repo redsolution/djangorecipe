@@ -1,6 +1,12 @@
 Description
 ===========
 
+This is the Redsolution's **fork** of official `djangorecipe <http://pypi.python.org/pypi/djangorecipe/>`_ package.
+Fork created for test compability and to propose changes in official repository.
+
+Original documentation:
+
+
 This buildout recipe can be used to create a setup for Django. It will
 automatically download Django and install it in the buildout's
 sandbox.
