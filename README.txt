@@ -4,6 +4,11 @@ Description
 This is the Redsolution's **fork** of official `djangorecipe <http://pypi.python.org/pypi/djangorecipe/>`_ package.
 Fork created for test compability and to propose changes in official repository.
 
+Fork changes:
+
+* removed django requirement in djangorecipe package
+* removed parts/django path from sys.path
+
 Original documentation:
 
 

@@ -20,8 +20,6 @@ class Recipe(object):
         self.egg = zc.recipe.egg.Egg(buildout, options['recipe'], options)
 
         self.buildout, self.name, self.options = buildout, name, options
-        options['location'] = os.path.join(
-            buildout['buildout']['parts-directory'], name)
         options['bin-directory'] = buildout['buildout']['bin-directory']
 
         options.setdefault('project', 'project')
@@ -46,7 +44,6 @@ class Recipe(object):
         options.setdefault('logfile', '')
 
     def install(self):
-        location = self.options['location']
         base_dir = self.buildout['buildout']['directory']
 
         project_dir = os.path.join(base_dir, self.options['project'])
@@ -75,7 +72,7 @@ class Recipe(object):
                     'Skipping creating of project: %(project)s since '
                     'it exists' % self.options)
 
-        return script_paths + [location]
+        return script_paths
 
     def create_manage_script(self, extra_paths, ws):
         project = self.options.get('projectegg', self.options['project'])
@@ -176,9 +173,7 @@ class Recipe(object):
         return scripts
 
     def get_extra_paths(self):
-        extra_paths = [self.options['location'],
-                       self.buildout['buildout']['directory'],
-                       ]
+        extra_paths = [self.buildout['buildout']['directory'], ]
 
         # Add libraries found by a site .pth files to our extra-paths.
         if 'pth-files' in self.options:
